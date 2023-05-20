@@ -13,7 +13,7 @@ const Update = () => {
 
 
     const deleteNote = (noteId) => {
-        axios.delete('http://localhost:8000/delete/' + noteId)
+        axios.delete('http://localhost:8000/api/delete/' + noteId)
             .then(res => {
 
                 navigate("/");
@@ -22,7 +22,7 @@ const Update = () => {
     }
     
     useEffect(() => {
-        axios.get('http://localhost:8000/onenote/' + id)
+        axios.get('http://localhost:8000/api/onenote/' + id)
             .then(res => {
                 setTitle(res.data.title);
                 setNoteBody(res.data.noteBody);
@@ -33,7 +33,7 @@ const Update = () => {
     
     const updateNote = (e) => {
         e.preventDefault();
-        axios.patch('http://localhost:8000/note/' + id, {
+        axios.patch('http://localhost:8000/api/note/' + id, {
             title,
             noteBody,
     })   

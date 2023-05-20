@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react'
 import axios from 'axios';
-import { useNavigate, Link} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 
 
 
@@ -8,11 +8,11 @@ import { useNavigate, Link} from 'react-router-dom'
 
 const NoteList = (props) => {
     
-    const navigate = useNavigate();
+
     const { note, setNote } = props;
     
     useEffect(()=>{
-    	axios.get("http://localhost:8000")
+    	axios.get("http://localhost:8000/api")
     	.then((res)=>{
 	    console.log(res.data);
             setNote(res.data);
@@ -38,7 +38,6 @@ const NoteList = (props) => {
                                 <div class="row">
                                     <div class="border col">
                                         <h3>{note.title}</h3>
-                                        <br />
                                         {note.noteBody}
                                     </div>
                                     <div class="col">

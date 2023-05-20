@@ -17,7 +17,7 @@ const NoteForm = () => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:8000/note/new', {
+        axios.post('http://localhost:8000/api/note/new', {
             title,    
             noteBody    
         })
